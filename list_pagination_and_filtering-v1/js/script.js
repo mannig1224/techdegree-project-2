@@ -36,8 +36,7 @@ const appendPageLinks = (list) => {
    const totalPages = Math.floor((list.length / 10));
    const div = document.createElement('div');
    const page = document.querySelector('.page');
-   const ul = document.createElement('ul');
-   const active = document.querySelectorAll('.active');
+   const ul = document.createElement('ul');   
    div.className = 'pagination';
 
    page.appendChild(div);
@@ -49,19 +48,18 @@ const appendPageLinks = (list) => {
        a.textContent = i + 1;
        li.appendChild(a);
        div.appendChild(li);
-       active[i].className  = '';
+      
        a.addEventListener('click', (e) => {
          showPage(student_list, i + 1);
-        
-        e.target.className = 'active';
+         const active = document.querySelector('.active');
+         active.className = '';
+         console.log(active.className);
+         e.target.className = 'active';
        });
       
     }
-   /*
-   6. Loop over pagination links to remove active class from all links
-   7. Add the active class to the link that was just clicked. You can identify that
-   clicked link using event.target
-   */
+    const initialActive = document.querySelector('div.pagination a');
+    initialActive.className = 'active';
    }
    showPage(student_list, 1);
    appendPageLinks(student_list);
