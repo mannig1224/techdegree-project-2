@@ -1,8 +1,4 @@
-/******************************************
-Treehouse Techdegree:
-FSJS project 2 - List Filter and Pagination
-******************************************/
-   
+
 /*** 
    Two global variable - Student_List will hold an array of students, and the itemsperpage holds 
    the number of students we want to display on each page.
@@ -53,7 +49,6 @@ const appendPageLinks = (list) => {
          showPage(student_list, i + 1);
          const active = document.querySelector('.active');
          active.className = '';
-         console.log(active.className);
          e.target.className = 'active';
        });
       
